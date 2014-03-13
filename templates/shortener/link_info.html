@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Link info{% endblock %}
+
+{% block content %}
+<li><a href="{{ link.short_url }}">{{ link.url }}</a> (Score: {{ link.usage_count }})</li>
+<pre>	its short link:<a href="{{ link.short_url }}"> {{ link.short_url }}</a></pre>
+(<a href="{% url shortener.views.info link.to_base62 %}">Info</a>)</li>
+<br>
+<br>
+Submitted on: {{ link.date_submitted|date:"M d, Y" }}
+</p>
+{% endblock %}
